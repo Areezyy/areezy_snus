@@ -9,6 +9,8 @@ ESX.RegisterUsableItem('snus', function(source)
 		if snus.count > 0 then
 			xPlayer.removeInventoryItem('snus', 1)
 			TriggerClientEvent('esx_snus:startSnus', source)
+			
+			TriggerClientEvent('esx:showNotification', source, ('Du tog en prilla!'))
 		else
 			TriggerClientEvent('esx:showNotification', source, ('Du har få snus kvar! Köp mera!'))
 		end
