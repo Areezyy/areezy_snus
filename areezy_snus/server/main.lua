@@ -10,8 +10,18 @@ ESX.RegisterUsableItem('snus', function(source)
 			xPlayer.removeInventoryItem('snus', 1)
 			TriggerClientEvent('esx_snus:startSnus', source)
 			
-			TriggerClientEvent('esx:showNotification', source, ('Du tog en prilla!'))
+			TriggerClientEvent("pNotify:SendNotification", source, {text = "Du stoppade upp en prilla!", type = "error", timeout = 2400, layout = "BottomCenter"})
 		else
 			TriggerClientEvent('esx:showNotification', source, ('Du har få snus kvar! Köp mera!'))
 		end
 end)
+
+function sendNotification(xSource, message, messageType, messageTimeout)
+    TriggerClientEvent("pNotify:SendNotification", xSource, {
+        text = message,
+        type = messageType,
+        queue = "kekke",
+        timeout = messageTimeout,
+        layout = "bottomCenter"
+    })
+end
